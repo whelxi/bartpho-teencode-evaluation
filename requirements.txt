@@ -1,0 +1,24 @@
+# Chỉ định index cho các bản build CUDA (nên dùng cu124 hoặc cu126 cho bản Torch 2.6.0+)
+--extra-index-url https://download.pytorch.org/whl/cu124
+
+# Core PyTorch - Đồng bộ phiên bản để tránh lỗi tương thích
+torch>=2.6.0
+torchvision>=0.21.0
+torchaudio>=2.6.0
+
+# LLM & NLP Transformers
+transformers
+datasets==2.19.0
+sentencepiece
+accelerate
+huggingface_hub
+unidecode
+sacrebleu
+evaluate
+
+# AI & Data Processing
+google-generativeai
+pandas
+scikit-learn
+requests
+peft
