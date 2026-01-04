@@ -1,1 +1,25 @@
-bartpho-teencode-lora filter=lfs diff=lfs merge=lfs -text
+# 1. Tự động xử lý kết thúc dòng (Line Endings) cho các file văn bản
+* text=auto
+
+# 2. Cấu hình Git LFS cho các file Model và Binary lớn
+# Các file này không nên được Git theo dõi nội dung (diff) mà chỉ lưu con trỏ
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.model filter=lfs diff=lfs merge=lfs -text
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+
+# 3. Cấu hình cho dữ liệu (Data)
+# Nếu các file jsonl/json trong thư mục 'data' hoặc 'scientific_data' rất nặng (>10MB)
+# Bạn nên đưa chúng vào LFS luôn để tránh làm nặng Repo
+*.jsonl filter=lfs diff=lfs merge=lfs -text
+# *.json filter=lfs diff=lfs merge=lfs -text (Bỏ comment nếu file json của bạn rất lớn)
+
+# 4. Đảm bảo các file script và cấu hình luôn được coi là text
+*.py text
+*.json text
+*.md text
+*.txt text
+.gitignore text
+.gitattributes text
